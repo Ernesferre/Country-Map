@@ -28,7 +28,7 @@ const Map: React.FC<MapProps> = ({ markers }) => {
     }
   }, [markers]);
 
-  return <div id="map" style={{ width: "60%", height: "60vh" }} />;
+  return <div id="map" style={{ width: "100%", height: "80vh", borderRadius: "8px" }} />;
 };
 
 export default Map;

@@ -26,7 +26,7 @@ export const initialState = {
   lat: -32,
   lng: -68,
   title: "Argentina",
-  zoom: 1,
+  zoom: 0,
 };
 
 export const searchCriteriaOptions = Object.keys(countries[0])

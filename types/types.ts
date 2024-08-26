@@ -7,6 +7,10 @@ export interface Language {
     name: string;
     code: string;
   }
+
+  export interface Languages {
+    name: string;
+  }
   
   export interface CountryProps {
       country: CountryInfo
@@ -17,6 +21,9 @@ export interface Language {
     capital: string;
     continent: Continent;
     emoji: string;
+    languages: Languages[],
+    currency: string,
+    code: string
   }
 
   export interface CountryCardProps {

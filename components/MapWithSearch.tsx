@@ -15,19 +15,16 @@ import SearchForm from "./SearchForm";
 import CardInfo from "./CardInfo";
 
 const MapWithSearch: React.FC = () => {
-  const [getCountry, { loading, error }] =
+  const [getCountry, { error }] =
     useLazyQuery<CountryProps>(GET_COUNTRY);
 
   const [selectedOption, setSelectedOption] = useState<OptionType | null>();
   const [searchCriteria, setSearchCriteria] = useState<OptionType | null>();
-  const [isSelectDisabled, setIsSelectDisabled] = useState(true);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [isSelectDisabled, setIsSelectDisabled] = useState<boolean>(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [filledOptions, setFilledOptions] = useState<OptionType[] | null>();
   const [markers, setMarkers] = useState<Markers>(initialState);
   const [countryInfo, setCountryInfo] = useState<CountryProps | null>();
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
 
   const handleSearchCriteria = (selectedCriteria: OptionType | null) => {
     setSearchCriteria(selectedCriteria);
@@ -65,7 +62,7 @@ const MapWithSearch: React.FC = () => {
         lat: Latitude,
         lng: Longitude,
         title: Country,
-        zoom: 3,
+        zoom: 2,
       });
     }
 
@@ -102,8 +99,9 @@ const MapWithSearch: React.FC = () => {
           handleSearchCountry={handleSearchCountry}
           handleClick={handleClick}
         />
-        <div className="flex gap-4">
+        <div className="flex flex-col-reverse md:flex-row justify-between gap-6">
           <Map markers={markers} />
+          {error && <p>Error: {error.message}</p>}
           {countryInfo && <CardInfo countryInfo={countryInfo.country} />}
         </div>
       </div>

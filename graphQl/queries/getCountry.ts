@@ -9,6 +9,11 @@ export const GET_COUNTRY = gql`
     }
     emoji
     capital
+     languages {
+			name
+    }
+    currency
+    code
   }
 }
 `;

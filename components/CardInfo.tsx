@@ -3,6 +3,8 @@ import React from "react";
 
 const CardInfo: React.FC<CountryCardProps> = ({countryInfo}) => {
 
+  console.log(countryInfo)
+
   const {name, capital, continent, emoji, languages, currency, code } = countryInfo
 
   return (
@@ -11,7 +13,7 @@ const CardInfo: React.FC<CountryCardProps> = ({countryInfo}) => {
         <span className="text-4xl">{emoji}</span>
       </div>
       <div className="p-4">
-        <h2 className="text-3xl text-center font-bold text-gray-800 mb-2">{name}</h2>
+        <h2 className="text-3xl text-center font-bold text-gray-800 mb-4">{name}</h2>
         <p className="text-gray-600 mb-2">
           <span className="font-semibold">Capital:</span> {capital}
         </p>
